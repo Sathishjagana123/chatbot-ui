@@ -18,11 +18,11 @@ pipeline {
                 sh "npm install"
             }
         }
-        stage("SonarQube Analysis") {
-            steps {
+       stage("Sonarqube Analysis "){
+            steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh """$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Chatbot \
-                    -Dsonar.projectKey=Chatbot"""
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Chatbot \
+                    -Dsonar.projectKey=Chatbot '''
                 }
             }
         }
