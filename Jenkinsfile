@@ -5,7 +5,7 @@ pipeline {
         nodejs 'node19'
     }
     environment {
-        SCANNER_HOME = tool 'Sonar-scanner'
+        SCANNER_HOME = tool 'sonar-scanner'
     }
     stages {
         stage('checkout from Git') {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage("SonarQube Analysis") {
             steps {
-                withSonarQubeEnv('Sonar-server') {
+                withSonarQubeEnv('sonar-server') {
                     sh """${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=Chatbot \
                     -Dsonar.projectKey=Chatbot"""
                 }
