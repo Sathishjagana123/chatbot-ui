@@ -21,7 +21,7 @@ pipeline {
         stage("SonarQube Analysis") {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh """${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=Chatbot \
+                    sh """$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Chatbot \
                     -Dsonar.projectKey=Chatbot"""
                 }
             }
